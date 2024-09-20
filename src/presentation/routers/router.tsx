@@ -1,5 +1,15 @@
 import { createBrowserRouter } from "react-router-dom";
-import { AssistantPage, OrthographyPage, ProsConsPage, ProsConsStreamPage, TextToAudioPage, TranslatePage } from "../pages";
+import {
+  AssistantPage,
+  AudioToTextPage,
+  ImageGenerationPage,
+  ImageTunningPage,
+  OrthographyPage,
+  ProsConsPage,
+  ProsConsStreamPage,
+  TextToAudioPage,
+  TranslatePage,
+} from "../pages";
 
 export const menuRoutes = [
   {
@@ -67,6 +77,4 @@ export const menuRoutes = [
   },
 ];
 
-export const router = createBrowserRouter([
-    
-]);
+export const router = createBrowserRouter([]);
