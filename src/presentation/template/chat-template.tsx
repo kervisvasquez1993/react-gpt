@@ -7,7 +7,7 @@ interface Message {
   text: string;
   isGPT: boolean;
 }
-export const OrthographyPage = () => {
+export const ChatTemplate = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [messages, setMessages] = useState<Message[]>([]);
   const headlesPost = async (text: string) => {

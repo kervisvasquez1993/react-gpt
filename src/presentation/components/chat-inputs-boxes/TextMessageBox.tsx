@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 interface Props {
   onSendMessage: (message: string) => void;
   placeholder?: string;
@@ -9,9 +9,14 @@ export const TextMessageBox = ({
   placeholder = "",
   disableCorrections = false,
 }: Props) => {
+  const [messages, setmessages] = useState<string>("");
   const handlesSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("heandlesssendMessage");
+    if (messages.trim().length === 0) return;
+
+    onSendMessage(messages);
+
+    setmessages("");
   };
   return (
     <form
@@ -29,11 +34,13 @@ export const TextMessageBox = ({
             autoComplete={disableCorrections ? "on" : "off"}
             autoCorrect={disableCorrections ? "on" : "off"}
             spellCheck={disableCorrections ? "true" : "false"}
+            value={messages}
+            onChange={(e) => setmessages(e.target.value)}
           />
         </div>
       </div>
       <div className="ml-4">
-        <button className="btn-primary">
+        <button className="btn-primary" type="submit">
           <span className="mr-2">Enviar</span>
           <i className="fa-regular fa-paper-plane "></i>
         </button>
